@@ -1,43 +1,40 @@
-## Tic Tac Toe
+# Tic Tac Toe
+
 import random
-class TicTacToe:
-  def drawBoard(board,move):
-      theBoard = '''
-    _______________________
-   |       |       |       | 
-   |   7   |   8   |   9   |
-   |_______|_______|_______|
-   |       |       |       |
-   |   4   |   5   |   6   |
-   |_______|_______|_______|
-   |       |       |       |
-   |   1   |   2   |   3   |
-   |_______|_______|_______|'''
-      print(board)
-      for i in range(1, 10):
-        if (board[i] == 'O' or board[i] == 'X'):
-          blankBoard = blankBoard.replace(str(i), board[i])
-        else:
-          blankBoard = blankBoard.replace(str(i), ' ')
-      print(theBoard)
-   
-  def chooseLetter(self):
-      print('Player one would you like to be X or O?')
-      letterOne = input()
-      letterOne = letterOne.upper()
-      while True:
-         if letterOne == 'X':
-            letterTwo = 'O'
-            print('Player one is '+ letterOne +' and Player two is '+letterTwo)
-            return letterOne, letterTwo
-         elif letterOne == 'O':
-            letterTwo = 'X'
-            print('Player one is '+ letterOne +' and Player two is '+letterTwo)
-            return letterOne, letterTwo
-         else:
-            print('Please pick between X and O!')
-            chooseLetter()
-            break
+class TicToc:
+    def drawBoard(self,board):
+        # This function prints out the board that it was passed.
+
+        # "board" is a list of 10 strings representing the board (ignore index 0)
+        print('   |   |')
+        print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
+        print('   |   |')
+        print('-----------')
+        print('   |   |')
+        print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
+        print('   |   |')
+        print('-----------')
+        print('   |   |')
+        print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
+        print('   |   |')
+
+    def chooseLetter(self):
+        print('Player one would you like to be X or O?')
+        letterOne = input()
+        letterOne = letterOne.upper()
+        while True:
+            if letterOne == 'X':
+                letterTwo = 'O'
+                print('Player one is '+ letterOne +' and Player two is '+letterTwo)
+                return letterOne, letterTwo
+            elif letterOne == 'O':
+                letterTwo = 'X'
+                print('Player one is '+ letterOne +' and Player two is '+letterTwo)
+                return letterOne, letterTwo
+            else:
+                print('Please pick between X and O!')
+                chooseLetter()
+                break
             
   def replay():
         playagain = input("Do you want to play again (y/n) ? ")
