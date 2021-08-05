@@ -37,11 +37,14 @@ class TicTacToe:
             print('Please pick between X and O!')
             chooseLetter()
             
-    def playAgain():
-    # This function returns True if the player wants to play again, otherwise it returns False.
-        print('Do you want to play again? (yes or no)')
-        return input().lower().startswith('y')
-
+    def replay():
+        playagain = input("Do you want to play again (y/n) ? ")
+        if playagain.lower() == 'y':
+            return True
+        if playagain.lower() == 'n':
+            return False
+         
+        
     def makeMove(board, letter, move):
         board[move] = letter
 
@@ -77,19 +80,6 @@ class TicTacToe:
             print('What is your next move? (1-9)')
             move = input()
         return int(move)
-
-    def chooseRandomMoveFromList(board, movesList):
-    # Returns a valid move from the passed list on the passed board.
-    # Returns None if there is no valid move.
-        possibleMoves = []
-        for i in movesList:
-            if isSpaceFree(board, i):
-                possibleMoves.append(i)
-
-        if len(possibleMoves) != 0:
-            return random.choice(possibleMoves)
-        else:
-            return None
 
 
 
