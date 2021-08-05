@@ -13,12 +13,12 @@ class TicTacToe:
    |       |       |       |
    |   1   |   2   |   3   |
    |_______|_______|_______|'''
-      for i in range(1, 10):
-         if (board[i] == 'O' or board[i] == 'X'):
-            blankBoard = blankBoard.replace(str(i), board[i])
-         else:
-            blankBoard = blankBoard.replace(str(i), ' ')
-      print(theBoard)
+    for i in range(1, 10):
+      if (board[i] == 'O' or board[i] == 'X'):
+        blankBoard = blankBoard.replace(str(i), board[i])
+      else:
+        blankBoard = blankBoard.replace(str(i), ' ')
+    print(theBoard)
    
     def chooseLetter():
       print('Player one would you like to be X or O?')
