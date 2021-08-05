@@ -81,7 +81,7 @@ class TicTacToe:
           move = input()
       return int(move)
 
-  def whoGoesFirst():
+  def whoGoesFirst(self):
       # Randomly choose the player who goes first.
       if random.randint(0, 1) == 0:
           return 'playerOne'
