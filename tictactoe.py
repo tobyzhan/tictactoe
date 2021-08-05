@@ -102,7 +102,8 @@ while True:
     # Reset the board
     theBoard = [' '] * 10
     letterOne, letterTwo = game.chooseLetter()
-    print('Player one will go first.')
+    turn = game.whoGoesFirst(
+    print('The ' + turn + ' will go first.')
     gameIsPlaying = True
 
     while gameIsPlaying:
