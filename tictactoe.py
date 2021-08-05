@@ -36,16 +36,23 @@ class TicToc:
                 chooseLetter()
                 break
             
-  def replay():
-        playagain = input("Do you want to play again (y/n) ? ")
-        if playagain.lower() == 'y':
-            return True
-        if playagain.lower() == 'n':
-            return False
-         
-        
-  def makeMove(board, letter, move):
-        board[move] = letter
+    def whoGoesFirst(self):
+        # Randomly choose the player who goes first.
+        if random.randint(0, 1) == 0:
+            return 'player one'
+        else:
+            return 'player two'
+
+    def playAgain(self):
+        # This function returns True if the player wants to play again, otherwise it returns False.
+        print('Do you want to play again? (yes or no)')
+        return input().lower().startswith('y')
+
+    def makeMove(self,board, letterOne,letterTwo, move):
+        if turn == 'player one':
+            board[move] = letterOne
+        if turn == 'player two':
+            board[move] = letterTwo
 
   def isWinner(bo, le):
     # Given a board and a player's letter, this function returns True if that player has won.
@@ -80,12 +87,6 @@ class TicToc:
           move = input()
       return int(move)
 
-  def whoGoesFirst(self):
-      # Randomly choose the player who goes first.
-      if random.randint(0, 1) == 0:
-          return 'playerOne'
-      else:
-          return 'playerTwo'
 
   def isBoardFull(board):
   # Return True if every space on the board has been taken. Otherwise return False.
