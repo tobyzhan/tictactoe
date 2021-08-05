@@ -1,7 +1,7 @@
 ## Tic Tac Toe
 import random
 class TicTacToe:
-  def drawBoard(board,self):
+  def drawBoard(board,move):
       theBoard = '''
     _______________________
    |       |       |       | 
@@ -13,6 +13,7 @@ class TicTacToe:
    |       |       |       |
    |   1   |   2   |   3   |
    |_______|_______|_______|'''
+      print(board)
       for i in range(1, 10):
         if (board[i] == 'O' or board[i] == 'X'):
           blankBoard = blankBoard.replace(str(i), board[i])
@@ -22,7 +23,8 @@ class TicTacToe:
    
   def chooseLetter(self):
       print('Player one would you like to be X or O?')
-      letterOne = input().upper()
+      letterOne = input()
+      letterOne = letterOne.upper()
       while True:
          if letterOne == 'X':
             letterTwo = 'O'
