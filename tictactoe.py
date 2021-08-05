@@ -14,11 +14,25 @@ class TicTacToe:
    |   1   |   2   |   3   |
    |_______|_______|_______|'''
    
-    def inputPlayerLetter():
-        letter = ''
-        while not (letter == 'X' or letter == 'O'):
-            print('Do you want to be X or O?')
-            letter = input().upper()
+    def chooseLetter():
+      print('Player one would you like to be X or O?')
+      letterOne = input().upper()
+      
+      while true:
+         if letterOne == 'X':
+            letterTwo == 'O'
+            print('Player one is '+ letterOne +' and Player two is '+letterTwo)
+            return letterOne, letterTwo
+         elif letterOne == 'O':
+            letterTwo == 'X'
+            print('Player one is '+ letterOne +' and Player two is '+letterTwo)
+            return letterOne, letterTwo
+         else:
+            print('Please pick between X and O!')
+            chooseLetter()
+            
+    def makeMove():
+         
 
     # the first element in the tuple is the player's letter, the second is the computer's letter.
     if letter == 'X':
