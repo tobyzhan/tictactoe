@@ -73,7 +73,7 @@ class TicTacToe:
   # Return true if the passed move is free on the passed board.
       return board[move] == ' '
 
-  def getPlayerMove(board):
+  def getPlayerMove(board,move,turn):
   # Let the player type in his move.
       move = ' '
       while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
