@@ -13,6 +13,12 @@ class TicTacToe:
    |       |       |       |
    |   1   |   2   |   3   |
    |_______|_______|_______|'''
+   for i in range(1, 10):
+            if (board[i] == 'O' or board[i] == 'X'):
+                blankBoard = blankBoard.replace(str(i), board[i])
+            else:
+                blankBoard = blankBoard.replace(str(i), ' ')
+   print(blankBoard)
    
     def chooseLetter():
       print('Player one would you like to be X or O?')
@@ -31,22 +37,6 @@ class TicTacToe:
             print('Please pick between X and O!')
             chooseLetter()
             
-    def makeMove():
-         
-
-    # the first element in the tuple is the player's letter, the second is the computer's letter.
-    if letter == 'X':
-        return ['X', 'O']
-    else:
-        return ['O', 'X']
-
-    def whoGoesFirst():
-    # Randomly choose the player who goes first.
-        if random.randint(0, 1) == 0:
-            return 'computer'
-        else:
-            return 'player'
-
     def playAgain():
     # This function returns True if the player wants to play again, otherwise it returns False.
         print('Do you want to play again? (yes or no)')
