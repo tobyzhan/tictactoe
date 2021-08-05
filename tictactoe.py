@@ -1,8 +1,8 @@
 # Tic Tac Toe
 
 class TicTacToe:
-   def drawBoard(board):
-    theBoard = '''
+  def drawBoard(board):
+      theBoard = '''
     _______________________
    |       |       |       | 
    |   7   |   8   |   9   |
@@ -13,14 +13,14 @@ class TicTacToe:
    |       |       |       |
    |   1   |   2   |   3   |
    |_______|_______|_______|'''
-    for i in range(1, 10):
-      if (board[i] == 'O' or board[i] == 'X'):
-        blankBoard = blankBoard.replace(str(i), board[i])
-      else:
-        blankBoard = blankBoard.replace(str(i), ' ')
-    print(theBoard)
+      for i in range(1, 10):
+        if (board[i] == 'O' or board[i] == 'X'):
+          blankBoard = blankBoard.replace(str(i), board[i])
+        else:
+          blankBoard = blankBoard.replace(str(i), ' ')
+      print(theBoard)
    
-    def chooseLetter():
+  def chooseLetter(self):
       print('Player one would you like to be X or O?')
       letterOne = input().upper()
       while True:
@@ -37,7 +37,7 @@ class TicTacToe:
             chooseLetter()
             break
             
-    def replay():
+  def replay():
         playagain = input("Do you want to play again (y/n) ? ")
         if playagain.lower() == 'y':
             return True
@@ -45,10 +45,10 @@ class TicTacToe:
             return False
          
         
-    def makeMove(board, letter, move):
+  def makeMove(board, letter, move):
         board[move] = letter
 
-    def isWinner(bo, le):
+  def isWinner(bo, le):
     # Given a board and a player's letter, this function returns True if that player has won.
     # We use bo instead of board and le instead of letter so we don't have to type as much.
         return ((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top
@@ -60,7 +60,7 @@ class TicTacToe:
         (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
         (bo[9] == le and bo[5] == le and bo[1] == le)) # diagonal
 
-    def getBoardCopy(board):
+  def getBoardCopy(board):
     # Make a duplicate of the board list and return it the duplicate.
         dupeBoard = []
 
@@ -69,35 +69,35 @@ class TicTacToe:
 
         return dupeBoard
 
-    def isSpaceFree(board, move):
-    # Return true if the passed move is free on the passed board.
-        return board[move] == ' '
+  def isSpaceFree(board, move):
+  # Return true if the passed move is free on the passed board.
+      return board[move] == ' '
 
-    def getPlayerMove(board):
-    # Let the player type in his move.
-        move = ' '
-        while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
-            print('What is your next move? (1-9)')
-            move = input()
-        return int(move)
-
-
-
-    def isBoardFull(board):
-    # Return True if every space on the board has been taken. Otherwise return False.
-        for i in range(1, 10):
-            if isSpaceFree(board, i):
-                return False
-        return True
+  def getPlayerMove(board):
+  # Let the player type in his move.
+      move = ' '
+      while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
+          print('What is your next move? (1-9)')
+          move = input()
+      return int(move)
 
 
-print('Welcome to Tic Tac Toe!')
 
+  def isBoardFull(board):
+  # Return True if every space on the board has been taken. Otherwise return False.
+      for i in range(1, 10):
+          if isSpaceFree(board, i):
+              return False
+      return True
+
+
+print('Welcome to Tic Tac Toe by Meena and Toby!')
+game = TicTacToe()
 while True:
     # Reset the board
     theBoard = [' '] * 10
-    letterOne, letterTwo = chooseLetter()
-    print('Player1 will go first.')
+    letterOne, letterTwo = game.chooseLetter()
+    print('Player one will go first.')
     gameIsPlaying = True
 
     while gameIsPlaying:
@@ -121,7 +121,7 @@ while True:
 
         else:
             # Computer's turn.
-            move = getPlayerMove(theBoard, computerLetter)
+            move = getComputerMove(theBoard, computerLetter)
             makeMove(theBoard, computerLetter, move)
 
             if isWinner(theBoard, computerLetter):
@@ -138,3 +138,4 @@ while True:
 
     if not replay():
         break
+
