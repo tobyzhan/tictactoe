@@ -1,4 +1,4 @@
-# Tic Tac Toe
+## Tic Tac Toe
 import random
 class TicTacToe:
   def drawBoard(board):
@@ -109,17 +109,17 @@ while True:
     while gameIsPlaying:
         if turn == 'playerOne':
             # Player's turn.
-            drawBoard(theBoard)
-            move = getPlayerMove(theBoard, playerLetter)
-            makeMove(theBoard, playerLetter, move)
+            game.drawBoard(theBoard)
+            move = game.getPlayerMove(theBoard, letterOne)
+            game.makeMove(theBoard, letterOne, move)
 
-            if isWinner(theBoard, playerLetter):
-                drawBoard(theBoard)
-                print('Hooray! You have won the game!')
+            if game.isWinner(theBoard, letterOne):
+                game.drawBoard(theBoard)
+                print('Hooray! Player one you have won the game!')
                 gameIsPlaying = False
             else:
-                if isBoardFull(theBoard):
-                    drawBoard(theBoard)
+                if game.isBoardFull(theBoard):
+                    game.drawBoard(theBoard)
                     print('The game is a tie!')
                     break
                 else:
@@ -127,12 +127,12 @@ while True:
 
         else:
             # Computer's turn.
-            move = getComputerMove(theBoard, computerLetter)
-            makeMove(theBoard, computerLetter, move)
+            move = game.getPlayerMove(theBoard, letterTwo)
+            makeMove(theBoard, letterTwo, move)
 
-            if isWinner(theBoard, computerLetter):
+            if isWinner(theBoard, letterTwo):
                 drawBoard(theBoard)
-                print('The computer has beaten you! You lose.')
+                print('Player one has beaten you! You lose.')
                 gameIsPlaying = False
             else:
                 if isBoardFull(theBoard):
@@ -140,9 +140,11 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'player'
+                    turn = 'playerOne'
 
     if not replay():
         break
+
+
 
 
