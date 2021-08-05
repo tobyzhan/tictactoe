@@ -81,19 +81,19 @@ class TicTacToe:
           move = input()
       return int(move)
 
-def whoGoesFirst():
-    # Randomly choose the player who goes first.
-    if random.randint(0, 1) == 0:
-        return 'playerOne'
-    else:
-        return 'playerTwo'
+  def whoGoesFirst():
+      # Randomly choose the player who goes first.
+      if random.randint(0, 1) == 0:
+          return 'playerOne'
+      else:
+          return 'playerTwo'
 
-def isBoardFull(board):
-# Return True if every space on the board has been taken. Otherwise return False.
-    for i in range(1, 10):
-        if isSpaceFree(board, i):
-            return False
-    return True
+  def isBoardFull(board):
+  # Return True if every space on the board has been taken. Otherwise return False.
+      for i in range(1, 10):
+          if isSpaceFree(board, i):
+              return False
+      return True
 
 
 print('Welcome to Tic Tac Toe by Meena and Toby!')
@@ -102,7 +102,7 @@ while True:
     # Reset the board
     theBoard = [' '] * 10
     letterOne, letterTwo = game.chooseLetter()
-    turn = game.whoGoesFirst(
+    turn = game.whoGoesFirst()
     print('The ' + turn + ' will go first.')
     gameIsPlaying = True
 
