@@ -35,6 +35,7 @@ class TicTacToe:
          else:
             print('Please pick between X and O!')
             chooseLetter()
+            break
             
     def replay():
         playagain = input("Do you want to play again (y/n) ? ")
