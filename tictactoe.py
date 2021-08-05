@@ -54,9 +54,9 @@ class TicToc:
         if turn == 'player two':
             board[move] = letterTwo
 
-  def isWinner(bo, le):
-    # Given a board and a player's letter, this function returns True if that player has won.
-    # We use bo instead of board and le instead of letter so we don't have to type as much.
+    def isWinner(self,bo, le):
+        # Given a board and a player's letter, this function returns True if that player has won.
+        # We use bo instead of board and le instead of letter so we don't have to type as much.
         return ((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top
         (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle
         (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom
@@ -66,8 +66,8 @@ class TicToc:
         (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
         (bo[9] == le and bo[5] == le and bo[1] == le)) # diagonal
 
-  def getBoardCopy(board):
-    # Make a duplicate of the board list and return it the duplicate.
+    def getBoardCopy(self,board):
+        # Make a duplicate of the board list and return it the duplicate.
         dupeBoard = []
 
         for i in board:
@@ -75,25 +75,38 @@ class TicToc:
 
         return dupeBoard
 
-  def isSpaceFree(board, move):
-  # Return true if the passed move is free on the passed board.
-      return board[move] == ' '
+    def isSpaceFree(self,board, move):
+        # Return true if the passed move is free on the passed board.
+        return board[move] == ' '
 
-  def getPlayerMove(board,move,turn):
-  # Let the player type in his move.
-      move = ' '
-      while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
-          print('What is your next move? (1-9)')
-          move = input()
-      return int(move)
+    def getPlayerMove(self,board,turn):
+        if turn == 'player one':
+            move = ' '
+            while move not in '1 2 3 4 5 6 7 8 9'.split() or not self.isSpaceFree(board, int(move)):
+                print('Player one, what is your next move? (1-9)')
+                move = input()
+            return int(move)
+        if turn == 'player two':
+            move = ' '
+            while move not in '1 2 3 4 5 6 7 8 9'.split() or not self.isSpaceFree(board, int(move)):
+                print('Player two, what is your next move? (1-9)')
+                move = input()
+            return int(move)
+    
 
+    def getPlayer2Move(self,board, letterTwo):
+        # Given a board and the computer's letter, determine where to move and return that move.
+        if letterTwo == 'X':
+            letterOne = 'O'
+        else:
+            letterOne = 'X'
 
-  def isBoardFull(board):
-  # Return True if every space on the board has been taken. Otherwise return False.
-      for i in range(1, 10):
-          if isSpaceFree(board, i):
-              return False
-      return True
+    def isBoardFull(self,board):
+        # Return True if every space on the board has been taken. Otherwise return False.
+        for i in range(1, 10):
+            if self.isSpaceFree(board, i):
+                return False
+        return True
 
 
 print('Welcome to Tic Tac Toe by Meena and Toby!')
