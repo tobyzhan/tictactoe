@@ -96,9 +96,8 @@ print('Welcome to Tic Tac Toe!')
 while True:
     # Reset the board
     theBoard = [' '] * 10
-    playerLetter, computerLetter = inputPlayerLetter()
-    turn = whoGoesFirst()
-    print('The ' + turn + ' will go first.')
+    letterOne, letterTwo = chooseLetter()
+    print('Player1 will go first.')
     gameIsPlaying = True
 
     while gameIsPlaying:
@@ -118,7 +117,7 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'computer'
+                    turn = 'player'
 
         else:
             # Computer's turn.
@@ -137,5 +136,5 @@ while True:
                 else:
                     turn = 'player'
 
-    if not playAgain():
+    if not replay():
         break
