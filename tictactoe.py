@@ -1,5 +1,5 @@
 # Tic Tac Toe
-
+import random
 class TicTacToe:
   def drawBoard(board):
       theBoard = '''
@@ -81,14 +81,19 @@ class TicTacToe:
           move = input()
       return int(move)
 
+def whoGoesFirst():
+    # Randomly choose the player who goes first.
+    if random.randint(0, 1) == 0:
+        return 'playerOne'
+    else:
+        return 'playerTwo'
 
-
-  def isBoardFull(board):
-  # Return True if every space on the board has been taken. Otherwise return False.
-      for i in range(1, 10):
-          if isSpaceFree(board, i):
-              return False
-      return True
+def isBoardFull(board):
+# Return True if every space on the board has been taken. Otherwise return False.
+    for i in range(1, 10):
+        if isSpaceFree(board, i):
+            return False
+    return True
 
 
 print('Welcome to Tic Tac Toe by Meena and Toby!')
@@ -101,7 +106,7 @@ while True:
     gameIsPlaying = True
 
     while gameIsPlaying:
-        if turn == 'player':
+        if turn == 'playerOne':
             # Player's turn.
             drawBoard(theBoard)
             move = getPlayerMove(theBoard, playerLetter)
@@ -117,7 +122,7 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'player'
+                    turn = 'playerTwo'
 
         else:
             # Computer's turn.
@@ -138,4 +143,5 @@ while True:
 
     if not replay():
         break
+
 
