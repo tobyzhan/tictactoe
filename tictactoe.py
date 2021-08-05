@@ -110,7 +110,8 @@ class TicToc:
 
 
 print('Welcome to Tic Tac Toe by Meena and Toby!')
-game = TicTacToe()
+
+game = TicToc()
 while True:
     # Reset the board
     theBoard = [' '] * 10
@@ -120,15 +121,15 @@ while True:
     gameIsPlaying = True
 
     while gameIsPlaying:
-        if turn == 'playerOne':
+        if turn == 'player one':
             # Player's turn.
             game.drawBoard(theBoard)
-            move = game.getPlayerMove(theBoard, letterOne)
-            game.makeMove(theBoard, letterOne, move)
+            move = game.getPlayerMove(theBoard,turn)
+            game.makeMove(theBoard, letterOne,letterTwo,move)
 
             if game.isWinner(theBoard, letterOne):
                 game.drawBoard(theBoard)
-                print('Hooray! Player one you have won the game!')
+                print('Hooray! Player one has won the game!')
                 gameIsPlaying = False
             else:
                 if game.isBoardFull(theBoard):
@@ -136,28 +137,26 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'playerTwo'
+                    turn = 'player two'
 
-        else:
-            # Computer's turn.
-            move = game.getPlayerMove(theBoard, letterTwo)
-            makeMove(theBoard, letterTwo, move)
+        if turn == 'player two':
+            # Player's turn.
+            game.drawBoard(theBoard)
+            move = game.getPlayerMove(theBoard,turn)
+            game.makeMove(theBoard, letterOne,letterTwo,move)
 
-            if isWinner(theBoard, letterTwo):
-                drawBoard(theBoard)
-                print('Player one has beaten you! You lose.')
+            if game.isWinner(theBoard, letterTwo):
+                game.drawBoard(theBoard)
+                print('Hooray! Player two has won the game!')
                 gameIsPlaying = False
             else:
-                if isBoardFull(theBoard):
-                    drawBoard(theBoard)
+                if game.isBoardFull(theBoard):
+                    game.drawBoard(theBoard)
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'playerOne'
+                    turn = 'player one'
 
-    if not replay():
+    if not game.playAgain():
         break
-
-
-
 
