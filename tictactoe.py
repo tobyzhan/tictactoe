@@ -1,7 +1,7 @@
 ## Tic Tac Toe
 import random
 class TicTacToe:
-  def drawBoard(board,move):
+  def drawBoard(board,self):
       theBoard = '''
     _______________________
    |       |       |       | 
