@@ -23,7 +23,7 @@ class TicTacToe:
     def chooseLetter():
       print('Player one would you like to be X or O?')
       letterOne = input().upper()
-      while true:
+      while True:
          if letterOne == 'X':
             letterTwo == 'O'
             print('Player one is '+ letterOne +' and Player two is '+letterTwo)
