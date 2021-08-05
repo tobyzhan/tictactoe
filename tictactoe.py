@@ -18,7 +18,7 @@ class TicTacToe:
                 blankBoard = blankBoard.replace(str(i), board[i])
             else:
                 blankBoard = blankBoard.replace(str(i), ' ')
-   print(blankBoard)
+   print(theBoard)
    
     def chooseLetter():
       print('Player one would you like to be X or O?')
