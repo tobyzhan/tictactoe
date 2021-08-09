@@ -108,8 +108,12 @@ class TicToc:
                 return False
         return True
 
-
 print('Welcome to Tic Tac Toe by Meena and Toby!')
+print()
+print('This is a two person game where players are either X or O.')
+print('Players will take turns marking the board.')
+print('The goal of the game is to create three marks in a row: horizontally, vertically, or diagonally.')
+print('Have fun!')
 
 game = TicToc()
 while True:
