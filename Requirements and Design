@@ -1,0 +1,32 @@
+Requirements - 
+
+In our TicTacToe game, 2 players playing on the same computer choose if they want to be 'X' or 'O'. The players will take turns placing their markings ('X', 'O') by 
+
+typing out any number from 1-9 and entering it into the program. Each number corresponds to one of the spots on the 3x3 grid. The players are aiming towards getting 
+
+3 markings in a row diagonally, horizontally, or vertically before the other player. Players can mark anywhere they or the opponent haven't already marked. 
+
+
+Design - 
+
+class TicToc: - where all the functions are defined for the tictactoe game
+
+import random - used in whoGoesFirst() 
+
+def drawboard() - Draws the 3x3 grid for the game and sets each square on a grid to a counting number
+
+def chooseLetter() - Asks the player one if they want to be 'X' or 'O' and takes the input and sets the player two as the other letter.
+
+def whoGoesFirst() - Chooses a random player to go first
+
+def playAgain() - Asks the players if they want to play again and takes their input and loops the code back to the 'while True:' statement.
+
+def isWinner() - Draws out all of the win conditions for the game and returns true if one of the players win 
+
+def isSpaceFree() - returns true if the move that the player entered hasn't been used yet
+
+def getPlayerMove() - takes the input of either player one or player two and uses isSpaceFree to check if they can move there
+
+def isBoardFull - returns true if every space on the board is taken
+
+game = TicToc() - creates object named game that accesses the attributes of the TicToc class
